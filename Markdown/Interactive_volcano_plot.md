@@ -22,6 +22,24 @@ If you are using jupyter notebook, you only need to install bokeh. So, just type
 
 
 ```python
+!pip install bokeh
+```
+
+    Requirement already satisfied: bokeh in c:\users\seoltj10\appdata\local\continuum\anaconda3\lib\site-packages (1.2.0)
+    Requirement already satisfied: tornado>=4.3 in c:\users\seoltj10\appdata\local\continuum\anaconda3\lib\site-packages (from bokeh) (6.0.3)
+    Requirement already satisfied: numpy>=1.7.1 in c:\users\seoltj10\appdata\local\continuum\anaconda3\lib\site-packages (from bokeh) (1.16.4)
+    Requirement already satisfied: six>=1.5.2 in c:\users\seoltj10\appdata\local\continuum\anaconda3\lib\site-packages (from bokeh) (1.12.0)
+    Requirement already satisfied: Jinja2>=2.7 in c:\users\seoltj10\appdata\local\continuum\anaconda3\lib\site-packages (from bokeh) (2.10.1)
+    Requirement already satisfied: packaging>=16.8 in c:\users\seoltj10\appdata\local\continuum\anaconda3\lib\site-packages (from bokeh) (19.0)
+    Requirement already satisfied: python-dateutil>=2.1 in c:\users\seoltj10\appdata\local\continuum\anaconda3\lib\site-packages (from bokeh) (2.8.0)
+    Requirement already satisfied: PyYAML>=3.10 in c:\users\seoltj10\appdata\local\continuum\anaconda3\lib\site-packages (from bokeh) (5.1.1)
+    Requirement already satisfied: pillow>=4.0 in c:\users\seoltj10\appdata\local\continuum\anaconda3\lib\site-packages (from bokeh) (6.1.0)
+    Requirement already satisfied: MarkupSafe>=0.23 in c:\users\seoltj10\appdata\local\continuum\anaconda3\lib\site-packages (from Jinja2>=2.7->bokeh) (1.1.1)
+    Requirement already satisfied: pyparsing>=2.0.2 in c:\users\seoltj10\appdata\local\continuum\anaconda3\lib\site-packages (from packaging>=16.8->bokeh) (2.4.0)
+    
+
+
+```python
 import numpy as np
 from bokeh.models import ColumnDataSource, HoverTool, Span
 from bokeh.io import push_notebook, show, output_notebook, output_file
@@ -32,8 +50,18 @@ output_notebook() # you can omit this line if you're not using jupyter notebook
 ```
 
 
+
+    <div class="bk-root">
+        <a href="https://bokeh.pydata.org" target="_blank" class="bk-logo bk-logo-small bk-logo-notebook"></a>
+        <span id="1001">Loading BokehJS ...</span>
+    </div>
+
+
+
+
+
 ```python
-# These lines are used for generating html file
+# thses lines are used for generating html file
 from bokeh.resources import CDN
 from bokeh.embed import file_html
 ```
@@ -46,47 +74,6 @@ from bokeh.embed import file_html
 
 
 ```python
-# This block is used for upload CSV file from your local drive to Colab environment - For first CSV
-from google.colab import files
-uploaded = files.upload()
-```
-
-
-
-     <input type="file" id="files-d2c700c3-a60b-46bc-a5de-cd9aeb1faf42" name="files[]" multiple disabled />
-     <output id="result-d2c700c3-a60b-46bc-a5de-cd9aeb1faf42">
-      Upload widget is only available when the cell has been executed in the
-      current browser session. Please rerun this cell to enable.
-      </output>
-      <script src="/nbextensions/google.colab/files.js"></script> 
-
-
-    Saving 1wk_final value matched.csv to 1wk_final value matched.csv
-    
-
-
-```python
-# This block is used for upload CSV file from your local drive to Colab environment - For second CSV
-from google.colab import files
-uploaded = files.upload()
-```
-
-
-
-     <input type="file" id="files-b57b86ff-a754-4914-885c-69a03b986a1b" name="files[]" multiple disabled />
-     <output id="result-b57b86ff-a754-4914-885c-69a03b986a1b">
-      Upload widget is only available when the cell has been executed in the
-      current browser session. Please rerun this cell to enable.
-      </output>
-      <script src="/nbextensions/google.colab/files.js"></script> 
-
-
-    Saving volcano_1wk_for data.csv to volcano_1wk_for data.csv
-    
-
-
-```python
-
 # Here is the function to process data and draw plot
 def volcano(title, total_data, secretome, normal_color, secreted_color):
     # Start to process whole differential gene expression data to draw plot
@@ -121,10 +108,11 @@ def volcano(title, total_data, secretome, normal_color, secreted_color):
     source1 = ColumnDataSource(is_secreted)
     source2 = ColumnDataSource(not_secreted)
     
-    # Add each circle on figure - overdraw outline upon secreted genes                         
-    p.circle(x="logFC", y="transformed_p", source=source2, size=4, color=normal_color, alpha=0.5, legend_label="Not secreted gene")
-    p.circle(x="logFC", y="transformed_p", source=source1, size=4, color=secreted_color, alpha=0.5, legend_label="Secreted gene")
-    p.circle(x='logFC', y='transformed_p', size=5,alpha=1,source=source1, color='black', fill_color=None, name='outlines', legend_label="Secreted gene")
+    # Add each circle on figure - overdraw outline upon secreted genes
+    #NOTE: in jupyter notebook, legend_labels can not be reconginzed as correc attribute, use legend instead.
+    p.circle(x="logFC", y="transformed_p", source=source2, size=5, legend="Not secreted", color=normal_color, alpha=0.5)
+    p.circle(x="logFC", y="transformed_p", source=source1, size=5, legend='Secreted', color=secreted_color, alpha=0.8)
+    p.circle(x='logFC', y='transformed_p', size=6,alpha=1,source=source1, legend='Secreted', color='black', fill_color=None, name='outlines')
 
     # Add cutoff lines - |logFC| > 1, p value < 5E-4
     p.add_layout(Span(location=1, dimension='height', line_color='black', line_dash='dashed', line_width=1.5))
@@ -135,6 +123,7 @@ def volcano(title, total_data, secretome, normal_color, secreted_color):
     p.title.text_font_size = "18px"
     p.title.align = 'center'
 
+    
     # Set label and background color
     p.xaxis.axis_label = "log2FC"
     p.yaxis.axis_label = "-log10(Pval)"
@@ -147,6 +136,8 @@ def volcano(title, total_data, secretome, normal_color, secreted_color):
     # Or save as html file
     output_file('output_plot.html', mode='inline')
     save(p)
+    
+    
 volcano("Increased secretory genes in microarray data from Yimlamai et al. (2009), Cell",
         "volcano_1wk_for data.csv","1wk_final value matched.csv","Green","Red")
 ```
@@ -158,10 +149,13 @@ volcano("Increased secretory genes in microarray data from Yimlamai et al. (2009
 
 
 
-
-
-  <div class="bk-root" id="2368fd32-fdc5-493d-b3bd-ccfac9059a36" data-root-id="5488"></div>
-
+  <div class="bk-root" id="93a9ba83-e806-4628-a281-0638fd6ec723" data-root-id="2037"></div>
 
 
 
+
+
+
+```python
+
+```

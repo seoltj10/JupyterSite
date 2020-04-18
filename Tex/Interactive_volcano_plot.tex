@@ -404,7 +404,49 @@ just type
 (\textbf{! in front of pip is essential})
 
     \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
-\prompt{In}{incolor}{0}{\hspace{4pt}}
+\prompt{In}{incolor}{1}{\hspace{4pt}}
+\begin{Verbatim}[commandchars=\\\{\}]
+\PY{o}{!}pip install bokeh
+\end{Verbatim}
+\end{tcolorbox}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+Requirement already satisfied: bokeh in
+c:\textbackslash{}users\textbackslash{}seoltj10\textbackslash{}appdata\textbackslash{}local\textbackslash{}continuum\textbackslash{}anaconda3\textbackslash{}lib\textbackslash{}site-packages (1.2.0)
+Requirement already satisfied: tornado>=4.3 in
+c:\textbackslash{}users\textbackslash{}seoltj10\textbackslash{}appdata\textbackslash{}local\textbackslash{}continuum\textbackslash{}anaconda3\textbackslash{}lib\textbackslash{}site-packages (from
+bokeh) (6.0.3)
+Requirement already satisfied: numpy>=1.7.1 in
+c:\textbackslash{}users\textbackslash{}seoltj10\textbackslash{}appdata\textbackslash{}local\textbackslash{}continuum\textbackslash{}anaconda3\textbackslash{}lib\textbackslash{}site-packages (from
+bokeh) (1.16.4)
+Requirement already satisfied: six>=1.5.2 in
+c:\textbackslash{}users\textbackslash{}seoltj10\textbackslash{}appdata\textbackslash{}local\textbackslash{}continuum\textbackslash{}anaconda3\textbackslash{}lib\textbackslash{}site-packages (from
+bokeh) (1.12.0)
+Requirement already satisfied: Jinja2>=2.7 in
+c:\textbackslash{}users\textbackslash{}seoltj10\textbackslash{}appdata\textbackslash{}local\textbackslash{}continuum\textbackslash{}anaconda3\textbackslash{}lib\textbackslash{}site-packages (from
+bokeh) (2.10.1)
+Requirement already satisfied: packaging>=16.8 in
+c:\textbackslash{}users\textbackslash{}seoltj10\textbackslash{}appdata\textbackslash{}local\textbackslash{}continuum\textbackslash{}anaconda3\textbackslash{}lib\textbackslash{}site-packages (from
+bokeh) (19.0)
+Requirement already satisfied: python-dateutil>=2.1 in
+c:\textbackslash{}users\textbackslash{}seoltj10\textbackslash{}appdata\textbackslash{}local\textbackslash{}continuum\textbackslash{}anaconda3\textbackslash{}lib\textbackslash{}site-packages (from
+bokeh) (2.8.0)
+Requirement already satisfied: PyYAML>=3.10 in
+c:\textbackslash{}users\textbackslash{}seoltj10\textbackslash{}appdata\textbackslash{}local\textbackslash{}continuum\textbackslash{}anaconda3\textbackslash{}lib\textbackslash{}site-packages (from
+bokeh) (5.1.1)
+Requirement already satisfied: pillow>=4.0 in
+c:\textbackslash{}users\textbackslash{}seoltj10\textbackslash{}appdata\textbackslash{}local\textbackslash{}continuum\textbackslash{}anaconda3\textbackslash{}lib\textbackslash{}site-packages (from
+bokeh) (6.1.0)
+Requirement already satisfied: MarkupSafe>=0.23 in
+c:\textbackslash{}users\textbackslash{}seoltj10\textbackslash{}appdata\textbackslash{}local\textbackslash{}continuum\textbackslash{}anaconda3\textbackslash{}lib\textbackslash{}site-packages (from
+Jinja2>=2.7->bokeh) (1.1.1)
+Requirement already satisfied: pyparsing>=2.0.2 in
+c:\textbackslash{}users\textbackslash{}seoltj10\textbackslash{}appdata\textbackslash{}local\textbackslash{}continuum\textbackslash{}anaconda3\textbackslash{}lib\textbackslash{}site-packages (from
+packaging>=16.8->bokeh) (2.4.0)
+\end{Verbatim}
+
+    \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
+\prompt{In}{incolor}{2}{\hspace{4pt}}
 \begin{Verbatim}[commandchars=\\\{\}]
 \PY{k+kn}{import} \PY{n+nn}{numpy} \PY{k}{as} \PY{n+nn}{np}
 \PY{k+kn}{from} \PY{n+nn}{bokeh}\PY{n+nn}{.}\PY{n+nn}{models} \PY{k}{import} \PY{n}{ColumnDataSource}\PY{p}{,} \PY{n}{HoverTool}\PY{p}{,} \PY{n}{Span}
@@ -416,10 +458,14 @@ just type
 \end{Verbatim}
 \end{tcolorbox}
 
+    
+    
+    
+    
     \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
-\prompt{In}{incolor}{0}{\hspace{4pt}}
+\prompt{In}{incolor}{3}{\hspace{4pt}}
 \begin{Verbatim}[commandchars=\\\{\}]
-\PY{c+c1}{\PYZsh{} These lines are used for generating html file}
+\PY{c+c1}{\PYZsh{} thses lines are used for generating html file}
 \PY{k+kn}{from} \PY{n+nn}{bokeh}\PY{n+nn}{.}\PY{n+nn}{resources} \PY{k}{import} \PY{n}{CDN}
 \PY{k+kn}{from} \PY{n+nn}{bokeh}\PY{n+nn}{.}\PY{n+nn}{embed} \PY{k}{import} \PY{n}{file\PYZus{}html}
 \end{Verbatim}
@@ -441,45 +487,7 @@ just type
 notebook ipynb file!!}
 
     \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
-\prompt{In}{incolor}{1}{\hspace{4pt}}
-\begin{Verbatim}[commandchars=\\\{\}]
-\PY{c+c1}{\PYZsh{} This block is used for upload CSV file from your local drive to Colab environment \PYZhy{} For first CSV}
-\PY{k+kn}{from} \PY{n+nn}{google}\PY{n+nn}{.}\PY{n+nn}{colab} \PY{k}{import} \PY{n}{files}
-\PY{n}{uploaded} \PY{o}{=} \PY{n}{files}\PY{o}{.}\PY{n}{upload}\PY{p}{(}\PY{p}{)}
-\end{Verbatim}
-\end{tcolorbox}
-
-    
-    \begin{verbatim}
-<IPython.core.display.HTML object>
-    \end{verbatim}
-
-    
-    \begin{Verbatim}[commandchars=\\\{\}]
-Saving 1wk\_final value matched.csv to 1wk\_final value matched.csv
-\end{Verbatim}
-
-    \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
-\prompt{In}{incolor}{5}{\hspace{4pt}}
-\begin{Verbatim}[commandchars=\\\{\}]
-\PY{c+c1}{\PYZsh{} This block is used for upload CSV file from your local drive to Colab environment \PYZhy{} For second CSV}
-\PY{k+kn}{from} \PY{n+nn}{google}\PY{n+nn}{.}\PY{n+nn}{colab} \PY{k}{import} \PY{n}{files}
-\PY{n}{uploaded} \PY{o}{=} \PY{n}{files}\PY{o}{.}\PY{n}{upload}\PY{p}{(}\PY{p}{)}
-\end{Verbatim}
-\end{tcolorbox}
-
-    
-    \begin{verbatim}
-<IPython.core.display.HTML object>
-    \end{verbatim}
-
-    
-    \begin{Verbatim}[commandchars=\\\{\}]
-Saving volcano\_1wk\_for data.csv to volcano\_1wk\_for data.csv
-\end{Verbatim}
-
-    \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
-\prompt{In}{incolor}{28}{\hspace{4pt}}
+\prompt{In}{incolor}{9}{\hspace{4pt}}
 \begin{Verbatim}[commandchars=\\\{\}]
 \PY{c+c1}{\PYZsh{} Here is the function to process data and draw plot}
 \PY{k}{def} \PY{n+nf}{volcano}\PY{p}{(}\PY{n}{title}\PY{p}{,} \PY{n}{total\PYZus{}data}\PY{p}{,} \PY{n}{secretome}\PY{p}{,} \PY{n}{normal\PYZus{}color}\PY{p}{,} \PY{n}{secreted\PYZus{}color}\PY{p}{)}\PY{p}{:}
@@ -515,10 +523,11 @@ Saving volcano\_1wk\_for data.csv to volcano\_1wk\_for data.csv
     \PY{n}{source1} \PY{o}{=} \PY{n}{ColumnDataSource}\PY{p}{(}\PY{n}{is\PYZus{}secreted}\PY{p}{)}
     \PY{n}{source2} \PY{o}{=} \PY{n}{ColumnDataSource}\PY{p}{(}\PY{n}{not\PYZus{}secreted}\PY{p}{)}
     
-    \PY{c+c1}{\PYZsh{} Add each circle on figure \PYZhy{} overdraw outline upon secreted genes                         }
-    \PY{n}{p}\PY{o}{.}\PY{n}{circle}\PY{p}{(}\PY{n}{x}\PY{o}{=}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{logFC}\PY{l+s+s2}{\PYZdq{}}\PY{p}{,} \PY{n}{y}\PY{o}{=}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{transformed\PYZus{}p}\PY{l+s+s2}{\PYZdq{}}\PY{p}{,} \PY{n}{source}\PY{o}{=}\PY{n}{source2}\PY{p}{,} \PY{n}{size}\PY{o}{=}\PY{l+m+mi}{4}\PY{p}{,} \PY{n}{color}\PY{o}{=}\PY{n}{normal\PYZus{}color}\PY{p}{,} \PY{n}{alpha}\PY{o}{=}\PY{l+m+mf}{0.5}\PY{p}{,} \PY{n}{legend\PYZus{}label}\PY{o}{=}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{Not secreted gene}\PY{l+s+s2}{\PYZdq{}}\PY{p}{)}
-    \PY{n}{p}\PY{o}{.}\PY{n}{circle}\PY{p}{(}\PY{n}{x}\PY{o}{=}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{logFC}\PY{l+s+s2}{\PYZdq{}}\PY{p}{,} \PY{n}{y}\PY{o}{=}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{transformed\PYZus{}p}\PY{l+s+s2}{\PYZdq{}}\PY{p}{,} \PY{n}{source}\PY{o}{=}\PY{n}{source1}\PY{p}{,} \PY{n}{size}\PY{o}{=}\PY{l+m+mi}{4}\PY{p}{,} \PY{n}{color}\PY{o}{=}\PY{n}{secreted\PYZus{}color}\PY{p}{,} \PY{n}{alpha}\PY{o}{=}\PY{l+m+mf}{0.5}\PY{p}{,} \PY{n}{legend\PYZus{}label}\PY{o}{=}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{Secreted gene}\PY{l+s+s2}{\PYZdq{}}\PY{p}{)}
-    \PY{n}{p}\PY{o}{.}\PY{n}{circle}\PY{p}{(}\PY{n}{x}\PY{o}{=}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{logFC}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,} \PY{n}{y}\PY{o}{=}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{transformed\PYZus{}p}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,} \PY{n}{size}\PY{o}{=}\PY{l+m+mi}{5}\PY{p}{,}\PY{n}{alpha}\PY{o}{=}\PY{l+m+mi}{1}\PY{p}{,}\PY{n}{source}\PY{o}{=}\PY{n}{source1}\PY{p}{,} \PY{n}{color}\PY{o}{=}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{black}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,} \PY{n}{fill\PYZus{}color}\PY{o}{=}\PY{k+kc}{None}\PY{p}{,} \PY{n}{name}\PY{o}{=}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{outlines}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,} \PY{n}{legend\PYZus{}label}\PY{o}{=}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{Secreted gene}\PY{l+s+s2}{\PYZdq{}}\PY{p}{)}
+    \PY{c+c1}{\PYZsh{} Add each circle on figure \PYZhy{} overdraw outline upon secreted genes}
+    \PY{c+c1}{\PYZsh{}NOTE: in jupyter notebook, legend\PYZus{}labels can not be reconginzed as correc attribute, use legend instead.}
+    \PY{n}{p}\PY{o}{.}\PY{n}{circle}\PY{p}{(}\PY{n}{x}\PY{o}{=}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{logFC}\PY{l+s+s2}{\PYZdq{}}\PY{p}{,} \PY{n}{y}\PY{o}{=}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{transformed\PYZus{}p}\PY{l+s+s2}{\PYZdq{}}\PY{p}{,} \PY{n}{source}\PY{o}{=}\PY{n}{source2}\PY{p}{,} \PY{n}{size}\PY{o}{=}\PY{l+m+mi}{5}\PY{p}{,} \PY{n}{legend}\PY{o}{=}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{Not secreted}\PY{l+s+s2}{\PYZdq{}}\PY{p}{,} \PY{n}{color}\PY{o}{=}\PY{n}{normal\PYZus{}color}\PY{p}{,} \PY{n}{alpha}\PY{o}{=}\PY{l+m+mf}{0.5}\PY{p}{)}
+    \PY{n}{p}\PY{o}{.}\PY{n}{circle}\PY{p}{(}\PY{n}{x}\PY{o}{=}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{logFC}\PY{l+s+s2}{\PYZdq{}}\PY{p}{,} \PY{n}{y}\PY{o}{=}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{transformed\PYZus{}p}\PY{l+s+s2}{\PYZdq{}}\PY{p}{,} \PY{n}{source}\PY{o}{=}\PY{n}{source1}\PY{p}{,} \PY{n}{size}\PY{o}{=}\PY{l+m+mi}{5}\PY{p}{,} \PY{n}{legend}\PY{o}{=}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{Secreted}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,} \PY{n}{color}\PY{o}{=}\PY{n}{secreted\PYZus{}color}\PY{p}{,} \PY{n}{alpha}\PY{o}{=}\PY{l+m+mf}{0.8}\PY{p}{)}
+    \PY{n}{p}\PY{o}{.}\PY{n}{circle}\PY{p}{(}\PY{n}{x}\PY{o}{=}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{logFC}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,} \PY{n}{y}\PY{o}{=}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{transformed\PYZus{}p}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,} \PY{n}{size}\PY{o}{=}\PY{l+m+mi}{6}\PY{p}{,}\PY{n}{alpha}\PY{o}{=}\PY{l+m+mi}{1}\PY{p}{,}\PY{n}{source}\PY{o}{=}\PY{n}{source1}\PY{p}{,} \PY{n}{legend}\PY{o}{=}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{Secreted}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,} \PY{n}{color}\PY{o}{=}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{black}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,} \PY{n}{fill\PYZus{}color}\PY{o}{=}\PY{k+kc}{None}\PY{p}{,} \PY{n}{name}\PY{o}{=}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{outlines}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)}
 
     \PY{c+c1}{\PYZsh{} Add cutoff lines \PYZhy{} |logFC| \PYZgt{} 1, p value \PYZlt{} 5E\PYZhy{}4}
     \PY{n}{p}\PY{o}{.}\PY{n}{add\PYZus{}layout}\PY{p}{(}\PY{n}{Span}\PY{p}{(}\PY{n}{location}\PY{o}{=}\PY{l+m+mi}{1}\PY{p}{,} \PY{n}{dimension}\PY{o}{=}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{height}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,} \PY{n}{line\PYZus{}color}\PY{o}{=}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{black}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,} \PY{n}{line\PYZus{}dash}\PY{o}{=}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{dashed}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,} \PY{n}{line\PYZus{}width}\PY{o}{=}\PY{l+m+mf}{1.5}\PY{p}{)}\PY{p}{)}
@@ -529,6 +538,7 @@ Saving volcano\_1wk\_for data.csv to volcano\_1wk\_for data.csv
     \PY{n}{p}\PY{o}{.}\PY{n}{title}\PY{o}{.}\PY{n}{text\PYZus{}font\PYZus{}size} \PY{o}{=} \PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{18px}\PY{l+s+s2}{\PYZdq{}}
     \PY{n}{p}\PY{o}{.}\PY{n}{title}\PY{o}{.}\PY{n}{align} \PY{o}{=} \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{center}\PY{l+s+s1}{\PYZsq{}}
 
+    
     \PY{c+c1}{\PYZsh{} Set label and background color}
     \PY{n}{p}\PY{o}{.}\PY{n}{xaxis}\PY{o}{.}\PY{n}{axis\PYZus{}label} \PY{o}{=} \PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{log2FC}\PY{l+s+s2}{\PYZdq{}}
     \PY{n}{p}\PY{o}{.}\PY{n}{yaxis}\PY{o}{.}\PY{n}{axis\PYZus{}label} \PY{o}{=} \PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{\PYZhy{}log10(Pval)}\PY{l+s+s2}{\PYZdq{}}
@@ -541,6 +551,8 @@ Saving volcano\_1wk\_for data.csv to volcano\_1wk\_for data.csv
     \PY{c+c1}{\PYZsh{} Or save as html file}
     \PY{n}{output\PYZus{}file}\PY{p}{(}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{output\PYZus{}plot.html}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,} \PY{n}{mode}\PY{o}{=}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{inline}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)}
     \PY{n}{save}\PY{p}{(}\PY{n}{p}\PY{p}{)}
+    
+    
 \PY{n}{volcano}\PY{p}{(}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{Increased secretory genes in microarray data from Yimlamai et al. (2009), Cell}\PY{l+s+s2}{\PYZdq{}}\PY{p}{,}
         \PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{volcano\PYZus{}1wk\PYZus{}for data.csv}\PY{l+s+s2}{\PYZdq{}}\PY{p}{,}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{1wk\PYZus{}final value matched.csv}\PY{l+s+s2}{\PYZdq{}}\PY{p}{,}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{Green}\PY{l+s+s2}{\PYZdq{}}\PY{p}{,}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{Red}\PY{l+s+s2}{\PYZdq{}}\PY{p}{)}
 \end{Verbatim}
@@ -550,8 +562,13 @@ Saving volcano\_1wk\_for data.csv to volcano\_1wk\_for data.csv
     
     
     
-    
-    
+    \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
+\prompt{In}{incolor}{ }{\hspace{4pt}}
+\begin{Verbatim}[commandchars=\\\{\}]
+
+\end{Verbatim}
+\end{tcolorbox}
+
 
     % Add a bibliography block to the postdoc
     
