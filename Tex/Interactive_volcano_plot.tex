@@ -487,7 +487,7 @@ packaging>=16.8->bokeh) (2.4.0)
 notebook ipynb file!!}
 
     \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
-\prompt{In}{incolor}{9}{\hspace{4pt}}
+\prompt{In}{incolor}{14}{\hspace{4pt}}
 \begin{Verbatim}[commandchars=\\\{\}]
 \PY{c+c1}{\PYZsh{} Here is the function to process data and draw plot}
 \PY{k}{def} \PY{n+nf}{volcano}\PY{p}{(}\PY{n}{title}\PY{p}{,} \PY{n}{total\PYZus{}data}\PY{p}{,} \PY{n}{secretome}\PY{p}{,} \PY{n}{normal\PYZus{}color}\PY{p}{,} \PY{n}{secreted\PYZus{}color}\PY{p}{)}\PY{p}{:}
@@ -541,7 +541,9 @@ notebook ipynb file!!}
     
     \PY{c+c1}{\PYZsh{} Set label and background color}
     \PY{n}{p}\PY{o}{.}\PY{n}{xaxis}\PY{o}{.}\PY{n}{axis\PYZus{}label} \PY{o}{=} \PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{log2FC}\PY{l+s+s2}{\PYZdq{}}
+    \PY{n}{p}\PY{o}{.}\PY{n}{xaxis}\PY{o}{.}\PY{n}{axis\PYZus{}label\PYZus{}text\PYZus{}font\PYZus{}size} \PY{o}{=} \PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{15pt}\PY{l+s+s2}{\PYZdq{}}
     \PY{n}{p}\PY{o}{.}\PY{n}{yaxis}\PY{o}{.}\PY{n}{axis\PYZus{}label} \PY{o}{=} \PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{\PYZhy{}log10(Pval)}\PY{l+s+s2}{\PYZdq{}}
+    \PY{n}{p}\PY{o}{.}\PY{n}{yaxis}\PY{o}{.}\PY{n}{axis\PYZus{}label\PYZus{}text\PYZus{}font\PYZus{}size} \PY{o}{=} \PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{15pt}\PY{l+s+s2}{\PYZdq{}}
     \PY{n}{p}\PY{o}{.}\PY{n}{background\PYZus{}fill\PYZus{}color} \PY{o}{=} \PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{\PYZsh{}DFDFE5}\PY{l+s+s2}{\PYZdq{}}
     \PY{n}{p}\PY{o}{.}\PY{n}{background\PYZus{}fill\PYZus{}alpha} \PY{o}{=} \PY{l+m+mf}{0.5}
     

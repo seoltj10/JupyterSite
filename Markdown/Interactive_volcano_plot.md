@@ -126,7 +126,9 @@ def volcano(title, total_data, secretome, normal_color, secreted_color):
     
     # Set label and background color
     p.xaxis.axis_label = "log2FC"
+    p.xaxis.axis_label_text_font_size = "15pt"
     p.yaxis.axis_label = "-log10(Pval)"
+    p.yaxis.axis_label_text_font_size = "15pt"
     p.background_fill_color = "#DFDFE5"
     p.background_fill_alpha = 0.5
     
@@ -149,7 +151,7 @@ volcano("Increased secretory genes in microarray data from Yimlamai et al. (2009
 
 
 
-  <div class="bk-root" id="93a9ba83-e806-4628-a281-0638fd6ec723" data-root-id="2037"></div>
+  <div class="bk-root" id="173eaf8c-d4d8-4c72-a70a-ccd76f46cb72" data-root-id="3388"></div>
 
 
 
