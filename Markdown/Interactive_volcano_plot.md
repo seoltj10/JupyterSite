@@ -1,4 +1,3 @@
-
 # Draw an interactive volcano plot using bokeh library
 
 
@@ -51,10 +50,10 @@ output_notebook() # you can omit this line if you're not using jupyter notebook
 
 
 
-    <div class="bk-root">
-        <a href="https://bokeh.pydata.org" target="_blank" class="bk-logo bk-logo-small bk-logo-notebook"></a>
-        <span id="1001">Loading BokehJS ...</span>
-    </div>
+<div class="bk-root">
+    <a href="https://bokeh.pydata.org" target="_blank" class="bk-logo bk-logo-small bk-logo-notebook"></a>
+    <span id="1001">Loading BokehJS ...</span>
+</div>
 
 
 
@@ -151,7 +150,7 @@ volcano("Increased secretory genes in microarray data from Yimlamai et al. (2009
 
 
 
-  <div class="bk-root" id="173eaf8c-d4d8-4c72-a70a-ccd76f46cb72" data-root-id="3388"></div>
+<div class="bk-root" id="173eaf8c-d4d8-4c72-a70a-ccd76f46cb72" data-root-id="3388"></div>
 
 
 

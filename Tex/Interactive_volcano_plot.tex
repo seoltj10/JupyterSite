@@ -1,43 +1,32 @@
-
-    
-
-
-
-
-    
 \documentclass[11pt]{article}
 
-    
     \usepackage[breakable]{tcolorbox}
-    \tcbset{nobeforeafter} % prevents tcolorboxes being placing in paragraphs
-    \usepackage{float}
-    \floatplacement{figure}{H} % forces figures to be placed at the correct location
+    \usepackage{parskip} % Stop auto-indenting (to mimic markdown behaviour)
     
-    \usepackage[T1]{fontenc}
-    % Nicer default font (+ math font) than Computer Modern for most use cases
-    \usepackage{mathpazo}
+    \usepackage{iftex}
+    \ifPDFTeX
+    	\usepackage[T1]{fontenc}
+    	\usepackage{mathpazo}
+    \else
+    	\usepackage{fontspec}
+    \fi
 
     % Basic figure setup, for now with no caption control since it's done
     % automatically by Pandoc (which extracts ![](path) syntax from Markdown).
     \usepackage{graphicx}
-    % We will generate all images so they have a width \maxwidth. This means
-    % that they will get their normal width if they fit onto the page, but
-    % are scaled down if they would overflow the margins.
-    \makeatletter
-    \def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth
-    \else\Gin@nat@width\fi}
-    \makeatother
+    % Maintain compatibility with old templates. Remove in nbconvert 6.0
     \let\Oldincludegraphics\includegraphics
-    % Set max figure width to be 80% of text width, for now hardcoded.
-    \renewcommand{\includegraphics}[1]{\Oldincludegraphics[width=.8\maxwidth]{#1}}
     % Ensure that by default, figures have no caption (until we provide a
     % proper Figure object with a Caption API and a way to capture that
     % in the conversion process - todo).
     \usepackage{caption}
-    \DeclareCaptionLabelFormat{nolabel}{}
-    \captionsetup{labelformat=nolabel}
+    \DeclareCaptionFormat{nocaption}{}
+    \captionsetup{format=nocaption,aboveskip=0pt,belowskip=0pt}
 
-    \usepackage{adjustbox} % Used to constrain images to a maximum size 
+    \usepackage[Export]{adjustbox} % Used to constrain images to a maximum size
+    \adjustboxset{max size={0.9\linewidth}{0.9\paperheight}}
+    \usepackage{float}
+    \floatplacement{figure}{H} % forces figures to be placed at the correct location
     \usepackage{xcolor} % Allow colors to be defined
     \usepackage{enumerate} % Needed for markdown enumerations to work
     \usepackage{geometry} % Used to adjust the document margins
@@ -51,14 +40,24 @@
     \usepackage{upquote} % Upright quotes for verbatim code
     \usepackage{eurosym} % defines \euro
     \usepackage[mathletters]{ucs} % Extended unicode (utf-8) support
-    \usepackage[utf8x]{inputenc} % Allow utf-8 characters in the tex document
     \usepackage{fancyvrb} % verbatim replacement that allows latex
     \usepackage{grffile} % extends the file name processing of package graphics 
-                         % to support a larger range 
+                         % to support a larger range
+    \makeatletter % fix for grffile with XeLaTeX
+    \def\Gread@@xetex#1{%
+      \IfFileExists{"\Gin@base".bb}%
+      {\Gread@eps{\Gin@base.bb}}%
+      {\Gread@@xetex@aux#1}%
+    }
+    \makeatother
+
     % The hyperref package gives us a pdf with properly built
     % internal navigation ('pdf bookmarks' for the table of contents,
     % internal cross-reference links, web links for URLs, etc.)
     \usepackage{hyperref}
+    % The default LaTeX title has an obnoxious amount of whitespace. By default,
+    % titling removes some of it. It also provides customization options.
+    \usepackage{titling}
     \usepackage{longtable} % longtable support required by pandoc >1.10
     \usepackage{booktabs}  % table support for pandoc > 1.12.2
     \usepackage[inline]{enumitem} % IRkernel/repr support (it uses the enumerate* environment)
@@ -339,8 +338,11 @@
     \definecolor{cellbackground}{HTML}{F7F7F7}
     
     % prompt
+    \makeatletter
+    \newcommand{\boxspacing}{\kern\kvtcb@left@rule\kern\kvtcb@boxsep}
+    \makeatother
     \newcommand{\prompt}[4]{
-        \llap{{\color{#2}[#3]: #4}}\vspace{-1.25em}
+        \ttfamily\llap{{\color{#2}[#3]:\hspace{3pt}#4}}\vspace{-\baselineskip}
     }
     
 
@@ -361,8 +363,7 @@
     
     
 
-    \begin{document}
-    
+\begin{document}
     
     \maketitle
     
@@ -404,7 +405,7 @@ just type
 (\textbf{! in front of pip is essential})
 
     \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
-\prompt{In}{incolor}{1}{\hspace{4pt}}
+\prompt{In}{incolor}{1}{\boxspacing}
 \begin{Verbatim}[commandchars=\\\{\}]
 \PY{o}{!}pip install bokeh
 \end{Verbatim}
@@ -443,15 +444,15 @@ Jinja2>=2.7->bokeh) (1.1.1)
 Requirement already satisfied: pyparsing>=2.0.2 in
 c:\textbackslash{}users\textbackslash{}seoltj10\textbackslash{}appdata\textbackslash{}local\textbackslash{}continuum\textbackslash{}anaconda3\textbackslash{}lib\textbackslash{}site-packages (from
 packaging>=16.8->bokeh) (2.4.0)
-\end{Verbatim}
+    \end{Verbatim}
 
     \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
-\prompt{In}{incolor}{2}{\hspace{4pt}}
+\prompt{In}{incolor}{2}{\boxspacing}
 \begin{Verbatim}[commandchars=\\\{\}]
 \PY{k+kn}{import} \PY{n+nn}{numpy} \PY{k}{as} \PY{n+nn}{np}
-\PY{k+kn}{from} \PY{n+nn}{bokeh}\PY{n+nn}{.}\PY{n+nn}{models} \PY{k}{import} \PY{n}{ColumnDataSource}\PY{p}{,} \PY{n}{HoverTool}\PY{p}{,} \PY{n}{Span}
-\PY{k+kn}{from} \PY{n+nn}{bokeh}\PY{n+nn}{.}\PY{n+nn}{io} \PY{k}{import} \PY{n}{push\PYZus{}notebook}\PY{p}{,} \PY{n}{show}\PY{p}{,} \PY{n}{output\PYZus{}notebook}\PY{p}{,} \PY{n}{output\PYZus{}file}
-\PY{k+kn}{from} \PY{n+nn}{bokeh}\PY{n+nn}{.}\PY{n+nn}{plotting} \PY{k}{import} \PY{n}{figure}\PY{p}{,} \PY{n}{save}
+\PY{k+kn}{from} \PY{n+nn}{bokeh}\PY{n+nn}{.}\PY{n+nn}{models} \PY{k+kn}{import} \PY{n}{ColumnDataSource}\PY{p}{,} \PY{n}{HoverTool}\PY{p}{,} \PY{n}{Span}
+\PY{k+kn}{from} \PY{n+nn}{bokeh}\PY{n+nn}{.}\PY{n+nn}{io} \PY{k+kn}{import} \PY{n}{push\PYZus{}notebook}\PY{p}{,} \PY{n}{show}\PY{p}{,} \PY{n}{output\PYZus{}notebook}\PY{p}{,} \PY{n}{output\PYZus{}file}
+\PY{k+kn}{from} \PY{n+nn}{bokeh}\PY{n+nn}{.}\PY{n+nn}{plotting} \PY{k+kn}{import} \PY{n}{figure}\PY{p}{,} \PY{n}{save}
 \PY{k+kn}{import} \PY{n+nn}{pandas} \PY{k}{as} \PY{n+nn}{pd}
 \PY{n}{pd}\PY{o}{.}\PY{n}{options}\PY{o}{.}\PY{n}{mode}\PY{o}{.}\PY{n}{chained\PYZus{}assignment} \PY{o}{=} \PY{k+kc}{None}
 \PY{n}{output\PYZus{}notebook}\PY{p}{(}\PY{p}{)} \PY{c+c1}{\PYZsh{} you can omit this line if you\PYZsq{}re not using jupyter notebook}
@@ -463,11 +464,11 @@ packaging>=16.8->bokeh) (2.4.0)
     
     
     \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
-\prompt{In}{incolor}{3}{\hspace{4pt}}
+\prompt{In}{incolor}{3}{\boxspacing}
 \begin{Verbatim}[commandchars=\\\{\}]
 \PY{c+c1}{\PYZsh{} thses lines are used for generating html file}
-\PY{k+kn}{from} \PY{n+nn}{bokeh}\PY{n+nn}{.}\PY{n+nn}{resources} \PY{k}{import} \PY{n}{CDN}
-\PY{k+kn}{from} \PY{n+nn}{bokeh}\PY{n+nn}{.}\PY{n+nn}{embed} \PY{k}{import} \PY{n}{file\PYZus{}html}
+\PY{k+kn}{from} \PY{n+nn}{bokeh}\PY{n+nn}{.}\PY{n+nn}{resources} \PY{k+kn}{import} \PY{n}{CDN}
+\PY{k+kn}{from} \PY{n+nn}{bokeh}\PY{n+nn}{.}\PY{n+nn}{embed} \PY{k+kn}{import} \PY{n}{file\PYZus{}html}
 \end{Verbatim}
 \end{tcolorbox}
 
@@ -487,7 +488,7 @@ packaging>=16.8->bokeh) (2.4.0)
 notebook ipynb file!!}
 
     \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
-\prompt{In}{incolor}{14}{\hspace{4pt}}
+\prompt{In}{incolor}{14}{\boxspacing}
 \begin{Verbatim}[commandchars=\\\{\}]
 \PY{c+c1}{\PYZsh{} Here is the function to process data and draw plot}
 \PY{k}{def} \PY{n+nf}{volcano}\PY{p}{(}\PY{n}{title}\PY{p}{,} \PY{n}{total\PYZus{}data}\PY{p}{,} \PY{n}{secretome}\PY{p}{,} \PY{n}{normal\PYZus{}color}\PY{p}{,} \PY{n}{secreted\PYZus{}color}\PY{p}{)}\PY{p}{:}
@@ -565,7 +566,7 @@ notebook ipynb file!!}
     
     
     \begin{tcolorbox}[breakable, size=fbox, boxrule=1pt, pad at break*=1mm,colback=cellbackground, colframe=cellborder]
-\prompt{In}{incolor}{ }{\hspace{4pt}}
+\prompt{In}{incolor}{ }{\boxspacing}
 \begin{Verbatim}[commandchars=\\\{\}]
 
 \end{Verbatim}
@@ -576,4 +577,4 @@ notebook ipynb file!!}
     
     
     
-    \end{document}
+\end{document}
